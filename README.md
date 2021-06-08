@@ -1,2 +1,2 @@
 # Omega2_Snippets
-Code Snippets for Omega2+
+Code Snippets for Onion Board Omega2+
