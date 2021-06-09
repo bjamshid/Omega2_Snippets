@@ -6,6 +6,7 @@ api_key = <API_KEY>
 base_url = "http://api.openweathermap.org/data/2.5/weather?"
 city_name = <CITY_NAME>
 complete_url = base_url + "appid=" + api_key + "&q=" + city_name + "&units=metric"
+os.system("oled-exp -i > /dev/null")
 while True:
     response = requests.get(complete_url)
     x = response.json()
