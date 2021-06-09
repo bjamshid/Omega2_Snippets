@@ -11,3 +11,5 @@ to bring back the running job:
 
 to send it back to background:
 	bg % 1
+
+![Alt text](Omega2_Snippets/OledExpansion/photo5911512735206717073.jpg ?raw=true "how_it_looks")
