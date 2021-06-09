@@ -1,15 +1,16 @@
 import requests
 import os
 from time import sleep
+from datetime import datetime
 api_key = <API_KEY>
 base_url = "http://api.openweathermap.org/data/2.5/weather?"
-city_name = <CITY>
+city_name = <CITY_NAME>
 complete_url = base_url + "appid=" + api_key + "&q=" + city_name + "&units=metric"
-i = 0
 while True:
     response = requests.get(complete_url)
     x = response.json()
     if x["cod"] != "404":
+        now = datetime.now()
         y = x["main"]
         current_temperature = y["temp"]
         feels = y["feels_like"]
@@ -23,11 +24,11 @@ while True:
         os.system("oled-exp cursor 2,0 > /dev/null")
         os.system("oled-exp write 'Feels: {}' > /dev/null".format(str(feels)[:4] + " C"))
         os.system("oled-exp cursor 3,0 > /dev/null")
-        os.system("oled-exp write 'Atm Pressure: {}' > /dev/null".format(str(current_pressure) + " hPa"))
-        os.system("oled-exp cursor 4,0 > /dev/null")
         os.system("oled-exp write 'Humidity: {}' > /dev/null".format(str(current_humidity) + "%"))
-        os.system("oled-exp cursor 5,0 > /dev/null")
+        os.system("oled-exp cursor 4,0 > /dev/null")
         os.system("oled-exp write 'Description: {}' > /dev/null".format(str(weather_description).title()))
+        os.system("oled-exp cursor 6,0 > /dev/null")
+        os.system("oled-exp write '{}' > /dev/null".format(now.strftime("%Y/%b/%d %H:%M:%S")))
     else:
         os.system("oled-exp write ERROR! > /dev/null")
     sleep(2700)
