@@ -31,6 +31,6 @@ while True:
         os.system("oled-exp cursor 7,0 > /dev/null")
         os.system("oled-exp write '{}' > /dev/null".format(now.strftime("%Y/%b/%d %H:%M:%S")))
     else:
-        os.system("oled-exp write ERROR! > /dev/null")
+        os.system("oled-exp write ERROR!")
     sleep(180)
 
